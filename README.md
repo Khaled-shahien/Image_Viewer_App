@@ -5,10 +5,15 @@ A modern, feature-rich image viewing application built with Flutter. This app pr
 ## 📱 Screenshots
 
 <p align="center">
-  <img src="screenshot/gallery_view.png" width="200" alt="Gallery View"/>
-  <img src="screenshot/viewer_mode.png" width="200" alt="Viewer Mode"/>
-  <img src="screenshot/swipe_navigation.png" width="200" alt="Swipe Navigation"/>
-  <img src="screenshot/pinch_zoom.png" width="200" alt="Pinch Zoom"/>
+  <img src="screenshot/Screenshot_1.png" width="200" alt="Gallery Screen"/>
+  <img src="screenshot/Screenshot_2.png" width="200" alt="Image Screen_1"/>
+  <img src="screenshot/Screenshot_3.png" width="200" alt="Image Screen_2"/>
+  <img src="screenshot/Screenshot_4.png" width="200" alt="Image Screen_3"/>
+</p>
+
+<p align="center">
+  <img src="screenshot/Screenshot_5.png" width="200" alt="Image Screen_4"/>
+  <img src="screenshot/Screenshot_6.png" width="200" alt="Image Screen_5"/>
 </p>
 
 ## 🌟 Features

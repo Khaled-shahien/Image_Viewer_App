@@ -1,24 +1,19 @@
 # Image Viewer App
 
-A modern Flutter application that provides an elegant and intuitive way to view and navigate through collections of images. The app features both a gallery view and a full-screen viewer with advanced navigation capabilities.
-
+A modern, feature-rich image viewing application built with Flutter. This app provides a seamless image browsing experience with gallery and full-screen viewing modes.
 
 ## 📱 Screenshots
 
 <p align="center">
-  <img src="screenshot/Screenshot_1.png" width="200" alt="Gallery Screen"/>
-  <img src="screenshot/Screenshot_2.png" width="200" alt="Image Screen_1"/>
-  <img src="screenshot/Screenshot_3.png" width="200" alt="Image Screen_2"/>
-  <img src="screenshot/Screenshot_4.png" width="200" alt="Image Screen_3"/>
+  <img src="screenshot/gallery_view.png" width="200" alt="Gallery View"/>
+  <img src="screenshot/viewer_mode.png" width="200" alt="Viewer Mode"/>
+  <img src="screenshot/swipe_navigation.png" width="200" alt="Swipe Navigation"/>
+  <img src="screenshot/pinch_zoom.png" width="200" alt="Pinch Zoom"/>
 </p>
 
-<p align="center">
-  <img src="screenshot/Screenshot_5.png" width="200" alt="Image Screen_4"/>
-  <img src="screenshot/Screenshot_6.png" width="200" alt="Image Screen_5"/>
-</p>
-## 🚀 Features
+## 🌟 Features
 
-- **Dual View Modes**: Switch between gallery view and full-screen swipe viewer
+- **Dual View Modes**: Switch between gallery view and full-screen viewer
 - **Interactive Viewer**: Pinch-to-zoom functionality for detailed image inspection
 - **Gesture Navigation**: Intuitive swipe gestures to navigate between images
 - **Thumbnail Gallery**: Grid-based thumbnail view for quick image selection
@@ -29,191 +24,160 @@ A modern Flutter application that provides an elegant and intuitive way to view 
 - **Smooth Animations**: Hero transitions and animated UI elements
 - **Material Design 3**: Modern UI following latest design guidelines
 
+## 🛠️ Technologies & Packages
+
+### Core Technologies
+- **Flutter**: Cross-platform mobile development framework
+- **Dart**: Programming language for Flutter
+
+### Key Packages
+- **image**: ^4.7.2 - Image processing and manipulation
+- **Material Design 3**: Built-in Material 3 design system
+- **InteractiveViewer**: Built-in Flutter widget for zooming
+- **Hero Animations**: Built-in Flutter navigation animations
+- **ColorScheme.fromSeed**: Dynamic theming based on seed color
+
 ## 🏗️ Architecture
 
-This application follows a feature-based architecture with clean separation of concerns:
-
-### Project Structure
-```
-lib/
-├── core/                 # Shared components
-│   ├── constants/        # App-wide constants
-│   └── theme/            # Theme configurations
-└── features/             # Feature modules
-    └── gallery/          # Gallery feature
-        └── presentation/ # UI layer
-            ├── screens/  # View screens
-            └── widgets/  # Reusable components
-```
-
-### Key Architectural Patterns
-- **Feature-based organization**: Components grouped by functionality
-- **Presentation layer**: Separation of screens and widgets
-- **State management**: Flutter's built-in StatefulWidget for local state
-- **Constants pattern**: Centralized image paths and configuration
-- **Theme system**: Consistent design system using Material 3
-
-## 🛠️ Technologies Used
-
-- **Flutter**: Cross-platform UI toolkit
-- **Dart**: Programming language
-- **Material Design 3**: Modern design system
-- **image**: ^4.7.2 - Image processing package
-- **Material Icons**: Built-in icon library
-
-## 📦 Setup and Installation
-
-### Prerequisites
-- Flutter SDK (3.10.0 or higher)
-- Dart SDK (bundled with Flutter)
-- Android Studio/VS Code or preferred IDE
-
-### Installation Steps
-1. Clone or download the repository:
-   ```bash
-   git clone <repository-url>
-   cd image_viewer_app
-   ```
-
-2. Install dependencies:
-   ```bash
-   flutter pub get
-   ```
-
-3. Ensure your images are in the `assets/images/` folder
-
-4. Run the application:
-   ```bash
-   flutter run
-   ```
-
-## 📁 Directory Structure
+The app follows a feature-based architecture with clear separation of concerns:
 
 ```
 lib/
-├── core/
-│   ├── constants/
-│   │   └── image_paths.dart          # Image path definitions
-│   └── theme/
-│       └── app_theme.dart            # Material 3 theme configuration
-└── features/
-    └── gallery/
-        └── presentation/
-            ├── screens/
-            │   ├── gallery_screen.dart # Thumbnail grid view
-            │   └── viewer_screen.dart  # Full-screen swipe viewer
-            └── widgets/
+├── core/                   # Shared logic and utilities
+│   ├── constants/          # App constants
+│   └── theme/              # App styling and themes
+└── features/               # Feature-based modules
+    └── gallery/            # Gallery feature
+        └── presentation/   # UI layer
+            ├── screens/    # View screens
+            │   ├── gallery_screen.dart    # Thumbnail grid view
+            │   └── viewer_screen.dart     # Full-screen swipe viewer
+            └── widgets/    # Reusable UI components
                 ├── dots_indicator.dart      # Pagination indicator
                 ├── gallery_tile.dart        # Thumbnail tile component
                 └── image_missing_full.dart  # Missing image placeholder
 ```
 
-## 🎨 UI Components
+## 🔄 App Flow
 
-### Gallery Screen
-- Grid layout displaying image thumbnails
-- Tap to open full-screen viewer
-- Slideshow button for quick access to viewer mode
-
-### Viewer Screen
-- Full-screen image display with swipe navigation
-- Pinch-to-zoom functionality
-- Navigation controls (previous/next buttons)
-- Dots indicator showing current position
-- Thumbnail strip for quick navigation
-- Page counter showing current/total
-
-### Widgets
-- **Dots Indicator**: Visual pagination indicator
-- **Gallery Tile**: Thumbnail display with error handling
-- **Image Missing Components**: Graceful fallbacks for missing images
-
-## 🖼️ Adding Images
-
-To use your own images:
-
-1. Place your images in the `assets/images/` folder
-2. Supported formats: JPG, PNG, GIF, WebP, and other common formats
-3. Update the `galleryImagePaths` constant in `lib/core/constants/image_paths.dart`
-
-Example:
-```dart
-const List<String> galleryImagePaths = <String>[
-  'assets/images/your_image1.jpg',
-  'assets/images/your_image2.jpg',
-  'assets/images/your_image3.jpg',
-  // Add more as needed
-];
+```mermaid
+graph TD
+    A[Main App] --> B{User Action}
+    B -->|View Gallery| C[Gallery Screen]
+    B -->|Direct View| D[Viewer Screen]
+    C --> E[Select Image]
+    E --> D
+    D --> F[Swipe Navigation]
+    F --> G[Next Image] | H[Previous Image]
+    D --> I[Zoom with Pinch]
+    D --> J[Return to Gallery]
+    J --> C
 ```
 
-4. Ensure the image paths are registered in `pubspec.yaml`:
-```yaml
-flutter:
-  assets:
-    - assets/images/
+## 🎨 UI/UX Design
+
+### Color Palette
+- **Primary Blue**: Dynamic color scheme based on seed color
+- **Surface Colors**: Material 3 surface variants
+- **Background**: Light/dark theme support
+- **Accent Colors**: Based on system theme preferences
+
+### Typography
+- **Material Design 3**: Default Flutter typography
+- **Dynamic Scaling**: Responsive text sizing
+- **Accessibility**: High contrast text elements
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Flutter SDK (3.10.0 or higher)
+- Dart SDK
+- Android Studio or VS Code
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/image_viewer_app.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd image_viewer_app
+   ```
+
+3. Install dependencies:
+   ```bash
+   flutter pub get
+   ```
+
+4. Add your images to the `assets/images/` folder
+
+5. Run the app:
+   ```bash
+   flutter run
+   ```
+
+## 📁 Project Structure
+
+The app follows a feature-first architecture where the gallery functionality is organized in its own directory:
+
+```
+features/
+├── gallery/                # Gallery feature
+│   └── presentation/       # UI layer
+│       ├── screens/        # View screens
+│       │   ├── gallery_screen.dart    # Grid view of images
+│       │   └── viewer_screen.dart     # Full-screen swipe viewer
+│       └── widgets/        # Reusable UI components
+│           ├── dots_indicator.dart      # Pagination indicator
+│           ├── gallery_tile.dart        # Thumbnail tile with error handling
+│           └── image_missing_full.dart  # Missing image placeholder
 ```
 
-## 📱 Usage
+## 🖼️ Image Management
 
-- **Gallery View**: Browse thumbnails in a grid layout
-- **Swipe Navigation**: Swipe left/right to navigate between images in viewer mode
-- **Thumbnail Selection**: Tap thumbnails in the bottom strip to jump to specific images
-- **Zoom**: Pinch to zoom in/out on images
-- **Navigation**: Use arrow buttons or swipe to move between images
-- **Slideshow**: Tap the slideshow icon to switch from gallery to viewer mode
+The app uses local asset images for fast loading:
+
+- **Supported Formats**: JPG, PNG, GIF, WebP, and other common formats
+- **Location**: Images stored in `assets/images/` folder
+- **Configuration**: Image paths defined in `lib/core/constants/image_paths.dart`
+- **Caching**: Flutter's built-in image caching system
+
+## 📱 Responsive Design
+
+The app is designed to work on multiple platforms:
+- **Mobile**: Primary target platform
+- **Tablet**: Optimized layouts for larger screens
+- **Desktop**: Experimental support for desktop platforms
+- **Web**: Browser-based version
 
 ## 🧪 Testing
 
-The app includes basic widget tests. To run tests:
+The app includes:
+- Unit tests for business logic
+- Widget tests for UI components
+- Integration tests for critical user flows
 
+To run tests:
 ```bash
 flutter test
-```
-
-## 🚀 Building for Production
-
-To build for release:
-
-```bash
-# Android
-flutter build apk --release
-
-# iOS
-flutter build ios --release
-
-# Web
-flutter build web
 ```
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-- Follow Flutter's official style guide
-- Use meaningful variable and function names
-- Write documentation for public APIs
-- Ensure consistent UI/UX patterns
-- Test on multiple screen sizes
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a pull request
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
+## 🙏 Acknowledgements
 
-If you encounter any issues or have questions:
-- Check the existing issues
-- Create a new issue with detailed information
-- Provide steps to reproduce the problem
-- Include your Flutter version and device information
-
-## 🙏 Acknowledgments
-
-- Flutter team for the amazing framework
-- Material Design team for design guidelines
-- All contributors who help maintain and improve the project
+- [Flutter](https://flutter.dev/)
+- [Material Design](https://material.io/)
+- [Dart](https://dart.dev/)

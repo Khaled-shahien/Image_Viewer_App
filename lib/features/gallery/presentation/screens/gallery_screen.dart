@@ -20,7 +20,7 @@ class GalleryScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (_) => ViewerScreen(
+                  builder: (_) => const ViewerScreen(
                     imagePaths: galleryImagePaths,
                     initialIndex: 0,
                   ),

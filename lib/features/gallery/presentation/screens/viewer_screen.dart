@@ -89,11 +89,7 @@ class _ViewerScreenState extends State<ViewerScreen> {
                             child: Image.asset(
                               path,
                               fit: BoxFit.contain,
-                              errorBuilder: (
-                                context,
-                                error,
-                                stackTrace,
-                              ) =>
+                              errorBuilder: (context, error, stackTrace) =>
                                   ImageMissingFull(index: i),
                             ),
                           ),
@@ -149,18 +145,14 @@ class _ViewerScreenState extends State<ViewerScreen> {
                         child: Image.asset(
                           widget.imagePaths[i],
                           fit: BoxFit.cover,
-                          errorBuilder: (
-                            context,
-                            error,
-                            stackTrace,
-                          ) =>
+                          errorBuilder: (context, error, stackTrace) =>
                               Container(
-                            color: colorScheme.surfaceContainerHighest,
-                            child: Icon(
-                              Icons.image_not_supported_rounded,
-                              color: colorScheme.outline,
-                            ),
-                          ),
+                                color: colorScheme.surfaceContainerHighest,
+                                child: Icon(
+                                  Icons.image_not_supported_rounded,
+                                  color: colorScheme.outline,
+                                ),
+                              ),
                         ),
                       ),
                     ),

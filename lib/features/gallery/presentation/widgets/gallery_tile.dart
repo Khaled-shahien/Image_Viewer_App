@@ -31,7 +31,7 @@ class GalleryTile extends StatelessWidget {
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(18),
-              child: Hero(
+            child: Hero(
               tag: 'img_$index',
               child: Image.asset(
                 path,

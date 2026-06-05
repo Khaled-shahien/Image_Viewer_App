@@ -28,10 +28,9 @@ class ImageMissingFull extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               'Check assets/images/ and pubspec.yaml',
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium
-                  ?.copyWith(color: colorScheme.outline),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(color: colorScheme.outline),
               textAlign: TextAlign.center,
             ),
           ],
